@@ -5,7 +5,8 @@
     = stylesheets
   %body
     #global-container
-      = yield
+      #page-container
+        = yield
     
     = javascripts 'jquery-1.5.1'
     = javascripts 'support/underscore', 'support/backbone'
