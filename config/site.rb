@@ -1,19 +1,23 @@
-# Default is 3000
-# configuration.preview_server_port = 3000
- 
-# Default is localhost
-# configuration.preview_server_host = "localhost"
- 
-# Default is true
-# When false .html & index.html get stripped off generated urls
-# configuration.use_extensions_for_page_links = true
- 
-# Default is an empty hash
-# configuration.sass_options = {}
- 
-# Default is an empty hash
-# http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html#options
-# configuration.haml_options = {}
+# Require any extra Tilt-supported template engines here
+# (haml and sass are included by default)
+# require 'slim'
+# require 'coffee-script'
 
-# Default is an empty string
-# configuration.coffee_options = ''
+configuration.preview_server_port = 4000
+configuration.default_template_engine = :haml
+configuration.preview_server_host = "localhost"
+
+# # # #
+# Configure any Tilt template engine you want.
+#  Be sure to reference the engine by its extension AS A STRING.
+# `preview_engine_options` override `engine_options` when using the preview server.
+#
+configuration.engine_options['scss'] = {
+  :line_comments => false,
+  :style => :compact
+}
+configuration.preview_engine_options['scss'] = {
+  :line_comments => true,
+  :debug_info => true,
+  :style => :nested
+}
